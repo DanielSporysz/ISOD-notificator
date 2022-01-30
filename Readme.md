@@ -19,6 +19,8 @@ If DISCORD_UID is not empty, discord webhook will use it to ping the user with D
 
 ### Pull and run from docker registry
 
+There is an application image available at [DockerHub](https://hub.docker.com/repository/docker/danielsporysz/isod-notificator).
+
 ```
 docker pull danielsporysz/isod-notificator:latest
 docker run \
