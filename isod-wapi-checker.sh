@@ -4,10 +4,15 @@ LATEST_HASH="latestHash"
 TMP_HASH="tmpHash"
 DELAY=60
 
-if [ -z "$WAPI_URL" ]; then
-  echo "WAPI_URL environment variable is empty. "
+if [ -z "$WAPI_KEY" ]; then
+  echo "WAPI_KEY environment variable is empty. "
   exit 1
 fi
+if [ -z "$WAPI_USER" ]; then
+  echo "WAPI_USER environment variable is empty. "
+  exit 1
+fi
+WAPI_URL="https://isod.ee.pw.edu.pl/isod-portal/wapi?q=mynewsheaders&username=$WAPI_USER&apikey=$WAPI_KEY&from=0&to=1"
 
 if [ -z "$WEBHOOK_URL" ]; then
   echo "WEBHOOK_URL environment variable is empty. "
@@ -50,7 +55,6 @@ while true; do
   fetch_isod_news
 
   # check if anything has been changed
-  echo "$RESP" | jq -r '.items[0].hash' >"$TMP_HASH"
   if cmp -s "$LATEST_HASH" "$TMP_HASH"; then
     echo 'Nothing new.'
   else
