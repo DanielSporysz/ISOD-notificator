@@ -28,6 +28,8 @@ docker run \
     -e WAPI_KEY="" \
     -e WEBHOOK_URL="" \
     -e DISCORD_UID="" \
+    --name isod-notifications \
+    -d \
     danielsporysz/isod-notificator:latest
 ```
 
