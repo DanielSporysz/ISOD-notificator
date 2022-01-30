@@ -10,7 +10,7 @@ if [ -z "$WAPI_KEY" ]; then
 fi
 if [ -z "$WAPI_USER" ]; then
   echo "WAPI_USER environment variable is empty. "
-  exit 1
+  exit 5
 fi
 WAPI_URL="https://isod.ee.pw.edu.pl/isod-portal/wapi?q=mynewsheaders&username=$WAPI_USER&apikey=$WAPI_KEY&from=0&to=1"
 
